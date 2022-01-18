@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lotto Generator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link href="css.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+
+<body>
+<div id='header'>
+<button type="button"  onclick="myFunction()" class="btn">הגרל</button>
+
+<br>
+
+<br>		
+<div id="num1"></div>
+<div id="num2"></div>
+<div id="num3"></div>
+<div id="num4"></div>
+<div id="num5"></div>
+<div id="num6"></div>
+
+<br>
+
+<div id="num7"></div>
+
+</div>
+
+
+<script>
+
+$( document ).ready(function() {
+  myFunction()
+
+});
+function myFunction() {
+
+    var num7 = Math.floor((Math.random() * 7) + 1);
+
+    var numbers = [];
+    while(numbers.length < 6){
+        var r = Math.floor(Math.random() * 37) + 1;
+        if(numbers.indexOf(r) === -1) numbers.push(r);
+    }
+    console.log(numbers);
+
+     numbers.sort(function(a, b) {
+      return a - b;
+     });
+
+    for (let i = 1; i < 7; i++){
+      console.log(i)
+      document.getElementById("num"+i).innerHTML = numbers[i-1];
+    }
+
+     document.getElementById("num7").innerHTML = num7;
+
+}
+</script>
+
+</body>
+</html>
